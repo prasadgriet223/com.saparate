@@ -16,6 +16,7 @@ sap.ui.define([
 				from: "dashboard",
 				jobId: "Recent Builds"
 			});
+			console.log("init commit");
 		},
 
 		/**
