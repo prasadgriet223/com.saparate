@@ -45,11 +45,22 @@ sap.ui.define([
 		//
 		//	}
 		_onObjectMatched: function (oEvent) {
+
 			var jobId = oEvent.getParameter("arguments").jobId;
 			var from = oEvent.getParameter("arguments").from;
 			this._from = from;
 			var oModel_jobdetails = new sap.ui.model.json.JSONModel();
 			if (jobId === "Recent Builds" && from === "dashboard") {
+				var Breadcrumb = this.getOwnerComponent().getModel("BreadCrumb");
+				Breadcrumb.setData([{
+					"name": "PipeLine",
+					"link": "./teddstddd"
+				}, {
+					"name": "PipeLine",
+					"link": "./testddd"
+				}]);
+				this.byId("idbreadcrumbs").setCurrentLocationText("Project");
+				this.byId("idtxtDashboard").setText("Recent Builds");
 				oModel_jobdetails.loadData(this.getOwnerComponent().getModel("servers").getProperty("latestBuildResults"));
 				this._to = "stagesFromDashboard";
 				this.getView().byId("idPipelineBuilds").setTitle("Recent Builds");
@@ -84,6 +95,10 @@ sap.ui.define([
 				jobId: "Recent Builds",
 				from: "dashboard"
 			});
+		},
+		onLinkPressNavigate: function (oEvent) {
+			
+			
 		}
 	});
 

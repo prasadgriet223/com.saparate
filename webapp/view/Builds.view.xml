@@ -1,40 +1,19 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="scp.com.saparate.controller.Builds"
-	xmlns:html="http://www.w3.org/1999/xhtml">
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="scp.com.saparate.controller.Builds">
 	<App>
 		<pages>
 			<Page id="idPipelineBuilds" title="" showNavButton="false" navButtonPress="navigatetoPrevious">
-				<!--<headerContent>-->
-					<!--<OverflowToolbar id="otb1dd">-->
-					<!--	<ToolbarSpacer/>-->
-					<!--	<Button icon="sap-icon://create" text="Creat New PipeLine" press="navigatetoCreatePipeline"/>-->
-					<!--</OverflowToolbar>-->
-				<!--	<Toolbar width="100%" id="toolbar2">-->
-				<!--		<content></content>-->
-				<!--	</Toolbar>-->
-					<!--<OverflowToolbar id="otb1">-->
-					<!--	<Label text="Buttons:"/>-->
-					<!--	<ToolbarSpacer/>-->
-					<!--	<Button text="New" type="Transparent"/>-->
-					<!--	<Button text="Open" type="Transparent"/>-->
-					<!--	<Button text="Save" type="Transparent"/>-->
-					<!--	<Button text="Save as" type="Transparent"/>-->
-					<!--	<Button text="Cut" type="Transparent"/>-->
-					<!--	<Button text="Copy" type="Transparent"/>-->
-					<!--	<Button text="Paste" type="Transparent"/>-->
-					<!--	<Button text="Undo" type="Transparent"/>-->
-					<!--	<Button text="Redo" type="Transparent"/>-->
-					<!--</OverflowToolbar>-->
-				<!--</headerContent>-->
-						<customHeader>
-						<Bar id="bar0">
-							<contentLeft>
-								<Breadcrumbs xmlns="sap.m" currentLocationText="Laptop"  id="breadcrumbs0" separatorStyle="GreaterThan">
-									<Link text="Level 1" emphasized="true"/>
-									<Link text="Level 2"/>
-								</Breadcrumbs>
-							</contentLeft>
-						</Bar>
-					</customHeader>
+				<customHeader>
+					<Bar id="bar0">
+						<contentLeft>
+							<Breadcrumbs xmlns="sap.m" currentLocationText="" links="{/}" id="idbreadcrumbs" separatorStyle="GreaterThan">
+								<Link emphasized="true" text="{name}" href="{link}" press="onLinkPressNavigate"/>
+							</Breadcrumbs>
+						</contentLeft>
+					<contentMiddle>
+					    <Text xmlns="sap.m" text="Text" id="idtxtDashboard"/>
+					</contentMiddle>
+					</Bar>
+				</customHeader>
 				<content>
 					<Table id="idPipeLineBuildResults" items="{Jobdetails>/}" alternateRowColors="true" itemPress="handleSelectionChange">
 						<columns>
@@ -62,15 +41,10 @@
 								<cells>
 									<ObjectStatus xmlns="sap.m" text="{Jobdetails>name}" state="Information" icon="sap-icon://process"/>
 									<ObjectStatus xmlns="sap.m" text="{Jobdetails>number}" state="Information" title="Build #"/>
-									<ObjectStatus xmlns="sap.m" text="{ parts : [ 'Jobdetails>estimatedDuration'], formatter: '.formatter.addSec' }" state="Information"
-										icon="sap-icon://lateness"/>
-									<ObjectStatus xmlns="sap.m" text="{ parts : [ 'Jobdetails>duartion'], formatter: '.formatter.addSec' }" state="Information"
-										icon="sap-icon://lateness"/>
-									<GenericTag text="{Jobdetails>buildResult}" design="StatusIconHidden"
-										status="{ parts : [ 'Jobdetails>buildResult' ], formatter: '.formatter.buildStatus' }"
-										valueState="{ parts : [ 'Jobdetails>buildResult' ], formatter: '.formatter.buildStatus' }"/>
-									<ObjectStatus xmlns="sap.m" state="Information" text="{ parts : [ 'Jobdetails>timeStamp'], formatter: '.formatter.formatDate'}"
-										icon="sap-icon://date-time"/>
+									<ObjectStatus xmlns="sap.m" text="{ parts : [ 'Jobdetails>estimatedDuration'], formatter: '.formatter.addSec' }" state="Information" icon="sap-icon://lateness"/>
+									<ObjectStatus xmlns="sap.m" text="{ parts : [ 'Jobdetails>duartion'], formatter: '.formatter.addSec' }" state="Information" icon="sap-icon://lateness"/>
+									<GenericTag text="{Jobdetails>buildResult}" design="StatusIconHidden" status="{ parts : [ 'Jobdetails>buildResult' ], formatter: '.formatter.buildStatus' }" valueState="{ parts : [ 'Jobdetails>buildResult' ], formatter: '.formatter.buildStatus' }"/>
+									<ObjectStatus xmlns="sap.m" state="Information" text="{ parts : [ 'Jobdetails>timeStamp'], formatter: '.formatter.formatDate'}" icon="sap-icon://date-time"/>
 								</cells>
 							</ColumnListItem>
 						</items>

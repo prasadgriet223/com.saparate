@@ -68,9 +68,9 @@ sap.ui.define([
 				from: "tonewpipeline"
 			});
 		},
-		gotoSettings: function () {
-			//	var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			//	oRouter.navTo("jobs");
+		gotoCredentials: function () {
+		var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			oRouter.navTo("RegisterEnvironments");
 
 		}
 

@@ -153,6 +153,12 @@
 				"titleTarget": "",
 				"greedy": false,
 				"target": ["Builds"]
+			}, {
+				"name": "RegisterEnvironments",
+				"pattern": "RegisterEnv",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["RegisterEnvironments"]
 			}],
 			"targets": {
 				"TargetLogin": {
@@ -197,6 +203,10 @@
 				"Builds": {
 					"viewType": "XML",
 					"viewName": "Builds"
+				},
+				"RegisterEnvironments": {
+					"viewType": "XML",
+					"viewName": "RegisterEnvironments"
 				}
 			}
 		}
