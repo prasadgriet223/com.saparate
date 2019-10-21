@@ -110,6 +110,7 @@ sap.ui.define([
 			this.getView().byId("idNewPipeLineRepoType").setText(this.getView().byId("idRepoTypeList").getSelectedItem().data("repokey"));
 			this.getView().byId("idNewPipeLineRepository").setText(this.getView().byId("idReposList").getSelectedItem().data("repohttps"));
 			this.getView().byId("idNewPipeLineBranch").setText(this.getView().byId("idBranchList").getSelectedItem().data("branchkey"));
+			this.getView().byId("idNewPipeLineBuildType").setText(this.getView().byId("idBuildSelect").getSelectedItem().getText());
 		},
 		afterLoadBranchesStep: function (oEvent) {
 			var oModel_branches = new sap.ui.model.json.JSONModel();
@@ -209,7 +210,9 @@ sap.ui.define([
 								onClose: function (oActions) {
 									if (oActions === "OK") {
 										var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-										oRouter.navTo("jobs");
+										oRouter.navTo("jobs", {
+											from: "tonewpipeline"
+										});
 									}
 								}.bind(this)
 							});

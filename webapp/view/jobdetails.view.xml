@@ -15,12 +15,11 @@
 							<items>
 								<CustomListItem type="Navigation" id="idBuildResultscustomList" press="navigatetoBuildStages">
 									<content>
-										<HBox justifyContent="SpaceBetween">
+										<HBox justifyContent="SpaceAround">
 											<items>
 												<VBox direction="Column">
 													<items>
-													
-														<ObjectStatus xmlns="sap.m" class="sapUiTinyMarginBegin" text="{ parts : [ 'Jobdetails>timeStamp', 'Jobdetails&gt;name' ], formatter: '.formatter.projectbuild' }" state="Information" icon="sap-icon://badge"/>
+														<ObjectStatus xmlns="sap.m" class="sapUiSmallMargin" text="{ parts : [ 'Jobdetails>timeStamp', 'Jobdetails&gt;name' ], formatter: '.formatter.projectbuild' }" state="Information" icon="sap-icon://badge"/>
 														<HBox>
 															<items>
 																<Text text="HelloWorld" class="sapUiTinyMargin"/>

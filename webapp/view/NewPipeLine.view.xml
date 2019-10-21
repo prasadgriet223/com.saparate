@@ -26,9 +26,9 @@
 						<form:SimpleForm editable="true" layout="ResponsiveGridLayout" id="form0">
 							<form:content>
 								<Label text="JobName" id="label1" required="true"/>
-								<Input width="30%" id="ip_JobName" liveChange="additionalInfoValidation"  />
+								<Input width="30%" id="ip_JobName" liveChange="additionalInfoValidation"/>
 								<Label text="SCM Credentials" id="label2"/>
-								<Select width="30%"  id="idCredSelect" items="{path: 'credentials>/'}" change="selectRepoType">
+								<Select width="30%" id="idCredSelect" items="{path: 'credentials>/'}" change="selectRepoType">
 									<core:ListItem key="{credentials>id}" text="{credentials>userName}" app:credkey="{credentials>credentialKey}"/>
 								</Select>
 							</form:content>
@@ -66,12 +66,11 @@
 						</List>
 						<HBox alignItems="Center" justifyContent="Center" width="100%"/>
 					</WizardStep>
-					<!--<WizardStep id="PricingStep" validated="false" title="Review">-->
-					<!--	<c:CodeEditor-->
-					<!--		value="specVersion: '1.0' metadata: name: com/saparate type: application builder: customTasks: - name: webide-extension-task-updateNeoApp afterTask: generateVersionInfo configuration: destDir: dist appFolder: webapp nameSpace: scp - name: webide-extension-task-updateManifestJson afterTask: webide-extension-task-updateNeoApp configuration: appFolder: webapp destDir: dist - name: webide-extension-task-lint afterTask: webide-extension-task-updateManifestJson configuration: destDir: dist appFolder: webapp nameSpace: scp - name: webide-extension-task-resources afterTask: webide-extension-task-lint configuration: nameSpace: scp"-->
-					<!--		height="300px" type="XML"/>-->
-					<!--	<HBox alignItems="Center" justifyContent="Center" width="100%"></HBox>-->
-					<!--</WizardStep>-->
+					<WizardStep id="idBuildStep" validated="true" title="Builder">
+						<Select width="30%" id="idBuildSelect">
+							<core:ListItem key="MTA" text="MTA"/>
+						</Select>
+					</WizardStep>
 				</Wizard>
 			</content>
 		</Page>

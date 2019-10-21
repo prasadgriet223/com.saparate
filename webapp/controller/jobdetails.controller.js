@@ -41,11 +41,20 @@ sap.ui.define([
 		_onObjectMatched: function (oEvent) {
 			//https://na2.saparate.com/saparate/jenkins/getJobResults?jobName=paramTest	
 			var jobId = oEvent.getParameter("arguments").jobId;
+			var from = oEvent.getParameter("arguments").from;
 			this._jobid = jobId;
 			var oModel_jobdetails = new sap.ui.model.json.JSONModel();
-			oModel_jobdetails.loadData(this.getOwnerComponent().getModel("servers").getProperty("jobresults") + "?jobName=" + jobId);
+			if (jobId === "Recent Builds" && from === "recentpipeline") {
+				oModel_jobdetails.loadData(this.getOwnerComponent().getModel("servers").getProperty("latestBuildResults"));
+
+			} else {
+				oModel_jobdetails.loadData(this.getOwnerComponent().getModel("servers").getProperty("jobresults") + "?jobName=" + jobId);
+				this.byId("idPageBuildResults").setTitle("Build Results--" + jobId);
+
+			}
+
 			this.getView().setModel(oModel_jobdetails, "Jobdetails");
-			this.byId("idPageBuildResults").setTitle("Build Results--" + jobId);
+
 		},
 		initiateTriggerJob: function (oEvent) {
 			var oModel_triggerJob = new sap.ui.model.json.JSONModel();
@@ -70,7 +79,7 @@ sap.ui.define([
 		navigatetobuildpipelines: function (oEvent) {
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			//oRouter.navTo("jobs");
-			
+
 			oRouter.navTo("jobs", {
 				from: "tonewpipeline"
 			});
@@ -79,12 +88,12 @@ sap.ui.define([
 		 *@memberOf scp.com.saparate.controller.jobdetails
 		 */
 		navigatetoBuildStages: function (oEvent) {
-		var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-		var buildId = oEvent.getSource().getBindingContext("Jobdetails").getProperty("number");
-				oRouter.navTo("buildStages", {
-					jobId: this._jobid,
-					buildid: buildId
-				});
+			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			var buildId = oEvent.getSource().getBindingContext("Jobdetails").getProperty("number");
+			oRouter.navTo("buildStages", {
+				jobId: this._jobid,
+				buildid: buildId
+			});
 			//	oRouter.navTo("buildStages");
 		}
 	});

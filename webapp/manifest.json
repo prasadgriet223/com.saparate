@@ -102,10 +102,10 @@
 			},
 			"routes": [
 				{
-					"name": "Dashboard",
+					"name": "Builds",
 					"pattern": "",
 					"target": [
-						"Dashboard"
+						"Builds"
 					]
 				},
 				{
@@ -153,7 +153,7 @@
 				},
 				{
 					"name": "jobdetails",
-					"pattern": "jobdetails/{jobId}",
+					"pattern": "jobdetails/{jobId},{from}",
 					"titleTarget": "",
 					"greedy": false,
 					"target": [
@@ -167,6 +167,15 @@
 					"greedy": false,
 					"target": [
 						"buildStages"
+					]
+				},
+				{
+					"name": "Builds",
+					"pattern": "builds/{jobId},{from}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Builds"
 					]
 				}
 			],
@@ -209,6 +218,10 @@
 				"buildStages": {
 					"viewType": "XML",
 					"viewName": "buildStages"
+				},
+				"Builds": {
+					"viewType": "XML",
+					"viewName": "Builds"
 				}
 			}
 		}

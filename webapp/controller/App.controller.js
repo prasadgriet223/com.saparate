@@ -11,7 +11,11 @@ sap.ui.define([
 		 * @memberOf scp.com.saparate.view.App
 		 */
 		onInit: function () {
-
+		var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			oRouter.navTo("Builds", {
+				from: "dashboard",
+				jobId: "Recent Builds"
+			});
 		},
 
 		/**
@@ -45,8 +49,9 @@ sap.ui.define([
 		},
 		gotoDashboard: function () {
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			oRouter.navTo("jobs", {
-				from: "recentpipeline"
+			oRouter.navTo("Builds", {
+				from: "dashboard",
+				jobId: "Recent Builds"
 			});
 		},
 		gotoUserStory: function () {

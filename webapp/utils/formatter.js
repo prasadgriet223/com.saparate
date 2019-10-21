@@ -13,8 +13,11 @@ sap.ui.define([], function () {
 			var result = "";
 			if (status === 'FAILURE')
 				result = "Error";
-			if (status === 'SUCCESS')
+			else if (status === 'SUCCESS')
 				result = "Success";
+			else
+				result = "Warning";
+
 			return result;
 		},
 		buildStagesStatus: function (status) {
@@ -24,6 +27,15 @@ sap.ui.define([], function () {
 			if (status === 'SUCCESS')
 				result = "Success";
 			return result;
+		},
+		addBuild: function (build) {
+			return "Build #" + build;
+		},
+		addSec: function (sec) {
+			return sec + "-Secs";
+		},
+		formatDate: function (date) {
+			return date.substring(0, 19);
 		}
 	};
 });

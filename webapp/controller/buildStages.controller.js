@@ -48,7 +48,7 @@ sap.ui.define([
 			oModel_buildstatusdetails.loadData(this.getOwnerComponent().getModel("servers").getProperty("JobStageResults") + "?jobName=" + jobId+"&buildNumber="+buildId)  ;
 			this.getView().setModel(oModel_buildstatusdetails, "Jobstatusdetails");
 			this.byId("idBuildStages").setTitle("Stagewise Build Results--" + jobId+"--Build#"+buildId);
-			this.byId("idbtn_respectivebuild").setText("Goto "+jobId+" Build Results");
+			
 			
 		}
 	});

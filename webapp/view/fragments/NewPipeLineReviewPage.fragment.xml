@@ -25,6 +25,12 @@
 					<Text id="idNewPipeLineBranch"/>
 				</form:content>
 			</form:SimpleForm>
+			<form:SimpleForm title="5. BuildType" minWidth="1024" editable="false" layout="ResponsiveGridLayout">
+				<form:content>
+					<Label text="Build Type"/>
+					<Text id="idNewPipeLineBuildType"/>
+				</form:content>
+			</form:SimpleForm>
 			<Bar>
 				<contentMiddle>
 					<Button text="Submit" press="handleCreateNewPipeLineSubmit"></Button>

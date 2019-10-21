@@ -2,58 +2,88 @@
 	controllerName="scp.com.saparate.controller.buildStages">
 	<App>
 		<pages>
-			<Page id="idBuildStages">
+			<Page id="idBuildStages"   navButtonPress="navigatetoPrevious">
 				<headerContent>
 					<OverflowToolbar id="idoftbBuildStages">
-						<Button icon="sap-icon://checklist" id="idbtn_respectivebuild" press="navigatetobuildpipelines"/>
+						<!--<Button icon="sap-icon://checklist" id="idbtn_respectivebuild" press="navigatetobuildpipelines"/>-->
 						<ToolbarSpacer/>
 						<!--<Button icon="sap-icon://physical-activity" text="Trigger Job" press="initiateTriggerJob"/>-->
 					</OverflowToolbar>
 				</headerContent>
 				<content>
-					<List noDataText="No Data" id="idBuildStageResults" items="{Jobstatusdetails>/0/stageResult/stages}">
+					<!--<List noDataText="No Data" id="idBuildStageResults" items="{Jobstatusdetails>/0/stageResult/stages}">-->
+					<!--	<items>-->
+					<!--		<CustomListItem id="idBuildResultscustomList">-->
+					<!--			<content>-->
+					<!--				<HBox justifyContent="SpaceBetween">-->
+					<!--					<items>-->
+					<!--						<VBox direction="Column">-->
+					<!--							<items>-->
+					<!--								<ObjectStatus xmlns="sap.m" class="sapUiTinyMargin"-->
+					<!--									text="{ parts : [ 'Jobdetails>timeStamp', 'Jobdetails&gt;name' ], formatter: '.formatter.projectbuild' }" state="Information"-->
+					<!--									icon="sap-icon://code"/>-->
+					<!--								<HBox>-->
+					<!--									<items>-->
+					<!--										<Text text="{Jobstatusdetails>name}" class="sapUiTinyMargin"/>-->
+					<!--										<ObjectStatus state="Information" title="id" class="sapUiTinyMargin" text="{Jobstatusdetails>id}" icon="sap-icon://badge"/>-->
+					<!--									</items>-->
+					<!--								</HBox>-->
+					<!--								<GenericTag text="{Jobstatusdetails>status}" design="StatusIconHidden"-->
+					<!--									status="{ parts : [ 'Jobstatusdetails>status' ], formatter: '.formatter.buildStagesStatus' }" class="sapUiTinyMargin"/>-->
+					<!--							</items>-->
+					<!--						</VBox>-->
+					<!--						<VBox direction="Column">-->
+					<!--							<items>-->
+					<!--<GenericTag text="{Jobstatusdetails>status}" design="StatusIconHidden"/>-->
+					<!--// status="{ parts : [ 'Jobstatusdetails>status' ], formatter: '.formatter.buildStagesStatus' }" // valueState="{ parts : [-->
+					<!--'Jobstatusdetails>status' ], formatter: '.formatter.buildStagesStatus' }" class="sapUiSmallMargin"/>-->
+					<!--							</items>-->
+					<!--						</VBox>-->
+					<!--						<VBox direction="Column">-->
+					<!--							<items>-->
+					<!--								<ObjectStatus xmlns="sap.m" state="Information" class="sapUiSmallMarginTop" text="{Jobstatusdetails>startTime}" icon="sap-icon://date-time"/>-->
+					<!--								<ObjectStatus xmlns="sap.m" state="Information" class="sapUiSmallMargin" title="Duration in sec" text="{Jobstatusdetails>duration}"-->
+					<!--									icon="sap-icon://lateness"/>-->
+					<!--							</items>-->
+					<!--						</VBox>-->
+					<!--					</items>-->
+					<!--				</HBox>-->
+					<!--			</content>-->
+					<!--		</CustomListItem>-->
+					<!--	</items>-->
+					<!--</List>-->
+					<Table id="idPipeLineBuildStageResults" items="{Jobstatusdetails>/0/stageResult/stages}" alternateRowColors="true">
+						<columns>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Stage"/>
+							</Column>
+							<!--<Column demandPopin="true" minScreenWidth="Tablet">-->
+							<!--	<Text text="StageId"/>-->
+							<!--</Column>-->
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Status"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="TimeStamp"/>
+							</Column>
+							<Column demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Duration"/>
+							</Column>
+						</columns>
 						<items>
-							<CustomListItem id="idBuildResultscustomList">
-								<content>
-									<HBox justifyContent="SpaceBetween">
-										<items>
-											<VBox direction="Column">
-												<items>
-													<!--<ObjectStatus xmlns="sap.m" class="sapUiTinyMargin"-->
-													<!--	text="{ parts : [ 'Jobdetails>timeStamp', 'Jobdetails&gt;name' ], formatter: '.formatter.projectbuild' }" state="Information"-->
-													<!--	icon="sap-icon://code"/>-->
-													<HBox>
-														<items>
-															<Text text="{Jobstatusdetails>name}" class="sapUiTinyMargin"/>
-															<ObjectStatus state="Information" title="id" class="sapUiTinyMargin" text="{Jobstatusdetails>id}" icon="sap-icon://badge"/>
-														</items>
-													</HBox>
-													<GenericTag text="{Jobstatusdetails>status}" design="StatusIconHidden"
-														status="{ parts : [ 'Jobstatusdetails>status' ], formatter: '.formatter.buildStagesStatus' }"
-														 class="sapUiTinyMargin"/>
-												</items>
-											</VBox>
-											<VBox direction="Column">
-												<items>
-												
-													<!--<GenericTag text="{Jobstatusdetails>status}" design="StatusIconHidden"/>-->
-													<!--//	status="{ parts : [ 'Jobstatusdetails>status' ], formatter: '.formatter.buildStagesStatus' }"-->
-													<!--//	valueState="{ parts : [ 'Jobstatusdetails>status' ], formatter: '.formatter.buildStagesStatus' }" class="sapUiSmallMargin"/>-->
-												</items>
-											</VBox>
-											<VBox direction="Column">
-												<items>
-													<ObjectStatus xmlns="sap.m" state="Information" class="sapUiSmallMarginTop" text="{Jobstatusdetails>startTime}" icon="sap-icon://date-time"/>
-													<ObjectStatus xmlns="sap.m" state="Information" class="sapUiSmallMargin" title="Duration in sec" text="{Jobstatusdetails>duration}"
-														icon="sap-icon://lateness"/>
-												</items>
-											</VBox>
-										</items>
-									</HBox>
-								</content>
-							</CustomListItem>
+							<ColumnListItem type="Inactive">
+								<cells>
+									<ObjectStatus state="Information" text="{Jobstatusdetails>name}" icon="sap-icon://badge"/>
+									<!--<ObjectStatus state="Information" text="{Jobstatusdetails>id}" icon="sap-icon://number-sign"/>-->
+									<GenericTag text="{Jobstatusdetails>status}" design="StatusIconHidden"
+										status="{ parts : [ 'Jobstatusdetails>status' ], formatter: '.formatter.buildStagesStatus' }"/>
+									<ObjectStatus state="Information" text="{Jobstatusdetails>startTime}" icon="sap-icon://date-time"/>
+									<ObjectStatus state="Information" text="{ parts : [ 'Jobstatusdetails>duration'], formatter: '.formatter.addSec' }"
+										icon="sap-icon://lateness"/>
+								</cells>
+							</ColumnListItem>
 						</items>
-					</List>
+					</Table>
 				</content>
 			</Page>
 		</pages>
