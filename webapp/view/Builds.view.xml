@@ -3,14 +3,14 @@
 	<App>
 		<pages>
 			<Page id="idPipelineBuilds" title="" showNavButton="false" navButtonPress="navigatetoPrevious">
-				<headerContent>
+				<!--<headerContent>-->
 					<!--<OverflowToolbar id="otb1dd">-->
 					<!--	<ToolbarSpacer/>-->
 					<!--	<Button icon="sap-icon://create" text="Creat New PipeLine" press="navigatetoCreatePipeline"/>-->
 					<!--</OverflowToolbar>-->
-					<Toolbar width="100%" id="toolbar2">
-						<content></content>
-					</Toolbar>
+				<!--	<Toolbar width="100%" id="toolbar2">-->
+				<!--		<content></content>-->
+				<!--	</Toolbar>-->
 					<!--<OverflowToolbar id="otb1">-->
 					<!--	<Label text="Buttons:"/>-->
 					<!--	<ToolbarSpacer/>-->
@@ -24,7 +24,17 @@
 					<!--	<Button text="Undo" type="Transparent"/>-->
 					<!--	<Button text="Redo" type="Transparent"/>-->
 					<!--</OverflowToolbar>-->
-				</headerContent>
+				<!--</headerContent>-->
+						<customHeader>
+						<Bar id="bar0">
+							<contentLeft>
+								<Breadcrumbs xmlns="sap.m" currentLocationText="Laptop"  id="breadcrumbs0" separatorStyle="GreaterThan">
+									<Link text="Level 1" emphasized="true"/>
+									<Link text="Level 2"/>
+								</Breadcrumbs>
+							</contentLeft>
+						</Bar>
+					</customHeader>
 				<content>
 					<Table id="idPipeLineBuildResults" items="{Jobdetails>/}" alternateRowColors="true" itemPress="handleSelectionChange">
 						<columns>
