@@ -18,105 +18,105 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "scp/com/saparate/utils/formatter"]
 
 		},
 		_onObjectMatched: function (oEvent) {
-			//var oModel_jobdetails = new sap.ui.model.json.JSONModel();
-			//oModel_jobdetails.loadData(this.getOwnerComponent().getModel("servers").getProperty("latestBuildResults"));
-			var oModel_jobdetails_cpp = new sap.ui.model.json.JSONModel();
-			oModel_jobdetails_cpp.setData(
+			var oModel_jobdetails = new sap.ui.model.json.JSONModel();
+			oModel_jobdetails.loadData(this.getOwnerComponent().getModel("servers").getProperty("latestBuildResults"));
+			//	var oModel_jobdetails_cpp = new sap.ui.model.json.JSONModel();
+			// oModel_jobdetails_cpp.setData(
 
-				[{
-					"id": 36,
-					"name": "test123",
-					"number": 1,
-					"buildResult": "FAILURE",
-					"duartion": 0,
-					"estimatedDuration": 0,
-					"timeStamp": "2019-10-20T16:42:21.000+0000",
-					"triggeredBy": null
-				}, {
-					"id": 35,
-					"name": "demopipeline",
-					"number": 1,
-					"buildResult": "FAILURE",
-					"duartion": 0,
-					"estimatedDuration": 0,
-					"timeStamp": "2019-10-20T08:18:50.000+0000",
-					"triggeredBy": null
-				}, {
-					"id": 34,
-					"name": "testtt",
-					"number": 18,
-					"buildResult": "FAILURE",
-					"duartion": 0,
-					"estimatedDuration": 0,
-					"timeStamp": "2019-10-20T06:31:45.000+0000",
-					"triggeredBy": null
-				}, {
-					"id": 31,
-					"name": "testdd",
-					"number": 1,
-					"buildResult": "FAILURE",
-					"duartion": 0,
-					"estimatedDuration": 0,
-					"timeStamp": "2019-10-19T17:35:41.000+0000",
-					"triggeredBy": null
-				}, {
-					"id": 32,
-					"name": "testtt",
-					"number": 17,
-					"buildResult": "FAILURE",
-					"duartion": 0,
-					"estimatedDuration": 0,
-					"timeStamp": "2019-10-19T17:34:00.000+0000",
-					"triggeredBy": null
-				}, {
-					"id": 33,
-					"name": "testtt",
-					"number": 16,
-					"buildResult": "FAILURE",
-					"duartion": 0,
-					"estimatedDuration": 0,
-					"timeStamp": "2019-10-19T17:32:21.000+0000",
-					"triggeredBy": null
-				}, {
-					"id": 30,
-					"name": "testtt",
-					"number": 15,
-					"buildResult": "FAILURE",
-					"duartion": 0,
-					"estimatedDuration": 0,
-					"timeStamp": "2019-10-19T17:30:36.000+0000",
-					"triggeredBy": null
-				}, {
-					"id": 28,
-					"name": "testtt",
-					"number": 14,
-					"buildResult": "FAILURE",
-					"duartion": 0,
-					"estimatedDuration": 0,
-					"timeStamp": "2019-10-19T17:23:31.000+0000",
-					"triggeredBy": null
-				}, {
-					"id": 29,
-					"name": "testtt",
-					"number": 13,
-					"buildResult": "FAILURE",
-					"duartion": 0,
-					"estimatedDuration": 0,
-					"timeStamp": "2019-10-19T17:21:06.000+0000",
-					"triggeredBy": null
-				}, {
-					"id": 26,
-					"name": "testtt",
-					"number": 12,
-					"buildResult": "FAILURE",
-					"duartion": 0,
-					"estimatedDuration": 0,
-					"timeStamp": "2019-10-19T17:18:21.000+0000",
-					"triggeredBy": null
-				}]
-			);
-			this.getView().setModel(oModel_jobdetails_cpp, "Jobdetails");
-			//	this.getView().setModel(oModel_jobdetails, "Jobdetails");
+			// 	[{
+			// 		"id": 36,
+			// 		"name": "test123",
+			// 		"number": 1,
+			// 		"buildResult": "FAILURE",
+			// 		"duartion": 0,
+			// 		"estimatedDuration": 0,
+			// 		"timeStamp": "2019-10-20T16:42:21.000+0000",
+			// 		"triggeredBy": null
+			// 	}, {
+			// 		"id": 35,
+			// 		"name": "demopipeline",
+			// 		"number": 1,
+			// 		"buildResult": "FAILURE",
+			// 		"duartion": 0,
+			// 		"estimatedDuration": 0,
+			// 		"timeStamp": "2019-10-20T08:18:50.000+0000",
+			// 		"triggeredBy": null
+			// 	}, {
+			// 		"id": 34,
+			// 		"name": "testtt",
+			// 		"number": 18,
+			// 		"buildResult": "FAILURE",
+			// 		"duartion": 0,
+			// 		"estimatedDuration": 0,
+			// 		"timeStamp": "2019-10-20T06:31:45.000+0000",
+			// 		"triggeredBy": null
+			// 	}, {
+			// 		"id": 31,
+			// 		"name": "testdd",
+			// 		"number": 1,
+			// 		"buildResult": "FAILURE",
+			// 		"duartion": 0,
+			// 		"estimatedDuration": 0,
+			// 		"timeStamp": "2019-10-19T17:35:41.000+0000",
+			// 		"triggeredBy": null
+			// 	}, {
+			// 		"id": 32,
+			// 		"name": "testtt",
+			// 		"number": 17,
+			// 		"buildResult": "FAILURE",
+			// 		"duartion": 0,
+			// 		"estimatedDuration": 0,
+			// 		"timeStamp": "2019-10-19T17:34:00.000+0000",
+			// 		"triggeredBy": null
+			// 	}, {
+			// 		"id": 33,
+			// 		"name": "testtt",
+			// 		"number": 16,
+			// 		"buildResult": "FAILURE",
+			// 		"duartion": 0,
+			// 		"estimatedDuration": 0,
+			// 		"timeStamp": "2019-10-19T17:32:21.000+0000",
+			// 		"triggeredBy": null
+			// 	}, {
+			// 		"id": 30,
+			// 		"name": "testtt",
+			// 		"number": 15,
+			// 		"buildResult": "FAILURE",
+			// 		"duartion": 0,
+			// 		"estimatedDuration": 0,
+			// 		"timeStamp": "2019-10-19T17:30:36.000+0000",
+			// 		"triggeredBy": null
+			// 	}, {
+			// 		"id": 28,
+			// 		"name": "testtt",
+			// 		"number": 14,
+			// 		"buildResult": "FAILURE",
+			// 		"duartion": 0,
+			// 		"estimatedDuration": 0,
+			// 		"timeStamp": "2019-10-19T17:23:31.000+0000",
+			// 		"triggeredBy": null
+			// 	}, {
+			// 		"id": 29,
+			// 		"name": "testtt",
+			// 		"number": 13,
+			// 		"buildResult": "FAILURE",
+			// 		"duartion": 0,
+			// 		"estimatedDuration": 0,
+			// 		"timeStamp": "2019-10-19T17:21:06.000+0000",
+			// 		"triggeredBy": null
+			// 	}, {
+			// 		"id": 26,
+			// 		"name": "testtt",
+			// 		"number": 12,
+			// 		"buildResult": "FAILURE",
+			// 		"duartion": 0,
+			// 		"estimatedDuration": 0,
+			// 		"timeStamp": "2019-10-19T17:18:21.000+0000",
+			// 		"triggeredBy": null
+			// 	}]
+			// );
+			//	this.getView().setModel(oModel_jobdetails_cpp, "Jobdetails");
+			this.getView().setModel(oModel_jobdetails, "Jobdetails");
 			this.byId("idBuildstblHdr").setText("Recent Builds");
 		},
 		handleSelectionChange: function (oEvent) {
