@@ -14,9 +14,9 @@ sap.ui.define([
 		onInit: function () {
 			this._oRouter = this.getOwnerComponent().getRouter();
 			this._oRouter.getRoute("Builds").attachPatternMatched(this._onObjectMatched, this);
-			this._jobid = "";
-			this._from = "";
-			this._to = "";
+			// this._jobid = "";
+			// this._from = "";
+			// this._to = "";
 		},
 
 		/**
@@ -45,49 +45,37 @@ sap.ui.define([
 		//
 		//	}
 		_onObjectMatched: function (oEvent) {
-
 			var jobId = oEvent.getParameter("arguments").jobId;
-			var from = oEvent.getParameter("arguments").from;
-			this._from = from;
 			var oModel_jobdetails = new sap.ui.model.json.JSONModel();
-			if (jobId === "Recent Builds" && from === "dashboard") {
-				var Breadcrumb = this.getOwnerComponent().getModel("BreadCrumb");
-				Breadcrumb.setData([{
-					"name": "PipeLine",
-					"link": "./teddstddd"
-				}, {
-					"name": "PipeLine",
-					"link": "./testddd"
-				}]);
-				this.byId("idbreadcrumbs").setCurrentLocationText("Project");
-				this.byId("idtxtDashboard").setText("Recent Builds");
-				oModel_jobdetails.loadData(this.getOwnerComponent().getModel("servers").getProperty("latestBuildResults"));
-				this._to = "stagesFromDashboard";
-				this.getView().byId("idPipelineBuilds").setTitle("Recent Builds");
-			} else {
-				oModel_jobdetails.loadData(this.getOwnerComponent().getModel("servers").getProperty("jobresults") + "?jobName=" + jobId);
-				this.getView().byId("idPipelineBuilds").setTitle("Build Results--" + jobId);
-				this._to = "stagesFromPipeline";
-				this._jobid = jobId;
-			}
+			oModel_jobdetails.loadData(this.getOwnerComponent().getModel("servers").getProperty("jobresults") + "?jobName=" + jobId);
+			this.byId("idBuildstblHdr").setText("Build Results--" + jobId);
 			this.getView().setModel(oModel_jobdetails, "Jobdetails");
-
+			// this._to = "stagesFromPipeline";
+			// this._jobid = jobId;
+			// if (jobId === "Recent Builds" && from === "dashboard") {
+			// 	var Breadcrumb = this.getOwnerComponent().getModel("BreadCrumb");
+			// 	Breadcrumb.setData([{
+			// 		"name": "PipeLine",
+			// 		"link": "./teddstddd"
+			// 	}, {
+			// 		"name": "PipeLine",
+			// 		"link": "./testddd"
+			// 	}]);
+			// 	//this.byId("idbreadcrumbs").setCurrentLocationText("Project");
+			// 	this.byId("idtxtDashboard").setText("Recent Builds");
+			// 	oModel_jobdetails.loadData(this.getOwnerComponent().getModel("servers").getProperty("latestBuildResults"));
+			// 	this._to = "stagesFromDashboard";
+			// 	this.getView().byId("idPipelineBuilds").setTitle("Recent Builds");
+			// } else {
+			//this.byId("idtxtDashboard").setText(+"Builds");
+			//}
 		},
 		handleSelectionChange: function (oEvent) {
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			if (this._to === "stagesFromPipeline") {
-				oRouter.navTo("buildStages", {
-					jobId: this._jobid,
-					buildid: oEvent.getParameter("listItem").getCells()[1].getText()
-				});
-			}
-			if (this._to === "stagesFromDashboard") {
-				oRouter.navTo("buildStages", {
-					jobId: oEvent.getParameter("listItem").getCells()[0].getText(),
-					buildid: oEvent.getParameter("listItem").getCells()[1].getText()
-				});
-			}
-
+			oRouter.navTo("buildStages", {
+				jobId: oEvent.getParameter("listItem").getCells()[0].getText(),
+				buildid: oEvent.getParameter("listItem").getCells()[1].getText()
+			});
 		},
 		navigatetoPrevious: function (oEvent) {
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
@@ -97,8 +85,7 @@ sap.ui.define([
 			});
 		},
 		onLinkPressNavigate: function (oEvent) {
-			
-			
+
 		}
 	});
 

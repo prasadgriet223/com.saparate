@@ -12,7 +12,7 @@
 			</Bar>
 		</headerContent>
 		<content>
-			<core:Fragment fragmentName="scp.com.saparate.view.fragments.LandingPage" type="XML"/>
+			<core:Fragment fragmentName="scp.com.saparate.view.fragments.Builds" type="XML"/>
 		</content>
 	</Page>
 </mvc:View>

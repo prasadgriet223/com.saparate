@@ -104,9 +104,9 @@
 				"clearControlAggregation": false
 			},
 			"routes": [{
-				"name": "Builds",
-				"pattern": "",
-				"target": ["Builds"]
+				"name": "Dashboard",
+				"pattern": "Dashboard",
+				"target": ["Dashboard"]
 			}, {
 				"name": "App",
 				"pattern": "App",
@@ -149,7 +149,7 @@
 				"target": ["buildStages"]
 			}, {
 				"name": "Builds",
-				"pattern": "builds/{jobId},{from}",
+				"pattern": "builds/{jobId}",
 				"titleTarget": "",
 				"greedy": false,
 				"target": ["Builds"]

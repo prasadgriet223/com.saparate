@@ -131,8 +131,7 @@ sap.ui.define([
 			var selectedJobId = oEvent.getSource().getBindingContext("Jobs").getProperty("projectname");
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			oRouter.navTo("Builds", {
-				jobId: selectedJobId,
-				from: "selectedjob"
+				jobId: selectedJobId
 			});
 
 		},

@@ -43,13 +43,51 @@ sap.ui.define([
 		//	}
 		_onObjectMatched: function (oEvent) {
 			var jobId = oEvent.getParameter("arguments").jobId;
-			var buildId= oEvent.getParameter("arguments").buildid;
-			var oModel_buildstatusdetails = new sap.ui.model.json.JSONModel();
-			oModel_buildstatusdetails.loadData(this.getOwnerComponent().getModel("servers").getProperty("JobStageResults") + "?jobName=" + jobId+"&buildNumber="+buildId)  ;
-			this.getView().setModel(oModel_buildstatusdetails, "Jobstatusdetails");
-			this.byId("idBuildStages").setTitle("Stagewise Build Results--" + jobId+"--Build#"+buildId);
-			
-			
+			var buildId = oEvent.getParameter("arguments").buildid;
+			//	var oModel_buildstatusdetails = new sap.ui.model.json.JSONModel();
+			//	oModel_buildstatusdetails.loadData(this.getOwnerComponent().getModel("servers").getProperty("JobStageResults") + "?jobName=" + jobId+"&buildNumber="+buildId)  ;
+			var oModel_buildstatusdetails_cpp = new sap.ui.model.json.JSONModel();
+			oModel_buildstatusdetails_cpp.setData([{
+				"name": "#1",
+				"duartion": 0,
+				"estimatedDuration": 0,
+				"number": 1,
+				"buildResult": "FAILURE",
+				"testResult": null,
+				"testReport": null,
+				"timeStamp": "2019/10/22 22:55:50",
+				"stageResult": {
+					"stages": [{
+						"id": 7,
+						"name": "prepare----000",
+						"execNode": "",
+						"status": "SUCCESS",
+						"startTime": "2019/10/22 22:56:02",
+						"duration": 0,
+						"pauseDuration": 0
+					}, {
+						"id": 12,
+						"name": "prepareConfigYaml",
+						"execNode": "",
+						"status": "SUCCESS",
+						"startTime": "2019/10/22 22:56:04",
+						"duration": 0,
+						"pauseDuration": 0
+					}, {
+						"id": 17,
+						"name": "prepareBuild",
+						"execNode": "",
+						"status": "FAILED",
+						"startTime": "2019/10/22 22:56:04",
+						"duration": 0,
+						"pauseDuration": 0
+					}]
+				}
+			}]);
+			this.getView().setModel(oModel_buildstatusdetails_cpp, "Jobstatusdetails");
+			//this.getView().setModel(oModel_buildstatusdetails, "Jobstatusdetails");
+			this.byId("idBuildStages").setTitle("Stagewise Build Results--" + jobId + "--Build#" + buildId);
+
 		}
 	});
 

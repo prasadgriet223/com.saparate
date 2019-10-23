@@ -11,12 +11,8 @@ sap.ui.define([
 		 * @memberOf scp.com.saparate.view.App
 		 */
 		onInit: function () {
-		var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			oRouter.navTo("Builds", {
-				from: "dashboard",
-				jobId: "Recent Builds"
-			});
-			console.log("init commit");
+			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			oRouter.navTo("Dashboard");
 		},
 
 		/**
@@ -50,10 +46,7 @@ sap.ui.define([
 		},
 		gotoDashboard: function () {
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			oRouter.navTo("Builds", {
-				from: "dashboard",
-				jobId: "Recent Builds"
-			});
+			oRouter.navTo("Dashboard");
 		},
 		gotoUserStory: function () {
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
@@ -70,7 +63,7 @@ sap.ui.define([
 			});
 		},
 		gotoCredentials: function () {
-		var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			oRouter.navTo("RegisterEnvironments");
 
 		}

@@ -44,14 +44,14 @@ sap.ui.define([
 			var from = oEvent.getParameter("arguments").from;
 			this._jobid = jobId;
 			var oModel_jobdetails = new sap.ui.model.json.JSONModel();
-			if (jobId === "Recent Builds" && from === "recentpipeline") {
-				oModel_jobdetails.loadData(this.getOwnerComponent().getModel("servers").getProperty("latestBuildResults"));
+			// if (jobId === "Recent Builds" && from === "recentpipeline") {
+			// 	oModel_jobdetails.loadData(this.getOwnerComponent().getModel("servers").getProperty("latestBuildResults"));
 
-			} else {
+			// } else {
 				oModel_jobdetails.loadData(this.getOwnerComponent().getModel("servers").getProperty("jobresults") + "?jobName=" + jobId);
 				this.byId("idPageBuildResults").setTitle("Build Results--" + jobId);
 
-			}
+		//	}
 
 			this.getView().setModel(oModel_jobdetails, "Jobdetails");
 
