@@ -187,13 +187,9 @@ sap.ui.define([
 										"type": "gst",
 										"statment": "mtaBuild script: this"
 									}]
-								}, {
-									"name": "Deploy",
-									"statementList": [{
-										"type": "gst",
-										"statment": "cloudFoundryDeploy script: this"
-									}]
-								}]
+								}
+								
+								]
 							},
 							"clodfoundryId": "1"
 						};
@@ -416,3 +412,23 @@ sap.ui.define([
 // 		"scp.com.saparate.view.fragments.NewPipeLineReviewPage", this);
 // 	this.getView().addDependent(this.oNewPipeLinereviewPageFragment);
 // }
+// , 
+								
+// 								{
+// 									"name": "Deploy",
+// 									"statementList": [{
+// 										"type": "gst",
+// 										"statment": "cloudFoundryDeploy script: this"
+// 									}]
+// 								}
+
+
+// alljobs=https://na1.saparate.com/saparate/jenkins/getAllJobs
+// log=https://na1.saparate.com/saparate/jenkins/getLog
+// abortjob=https://na1.saparate.com/saparate/jenkins/abortJob
+// stagelog=https://na1.saparate.com/saparate/jenkins/getStageLog
+// deletejob=https://na1.saparate.com/saparate/jenkins/deleteJob
+// getallcredentials=https://na1.saparate.com/saparate/credential/getAll
+// getcfc=https://na1.saparate.com/saparate/cloudfoundary/getAll
+// addcfc=https://na1.saparate.com/saparate/cloudfoundary/addOrUpdate
+// addorupdate=https://na1.saparate.com/saparate/credential/addOrUpdate

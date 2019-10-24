@@ -1,5 +1,4 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
-	controllerName="scp.com.saparate.controller.buildStages">
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="scp.com.saparate.controller.buildStages">
 	<App>
 		<pages>
 			<Page id="idBuildStages" navButtonPress="navigatetoPrevious">
@@ -73,7 +72,7 @@
 					<!--		</CustomListItem>-->
 					<!--	</items>-->
 					<!--</List>-->
-					<Table id="idPipeLineBuildStageResults" items="{Jobstatusdetails>/0/stageResult/stages}" alternateRowColors="true" mode="SingleSelectLeft">
+					<Table id="idPipeLineBuildStageResults" items="{Jobstatusdetails>/0/stageResult/stages}" alternateRowColors="true" mode="SingleSelectLeft" selectionChange="ShowStageLog">
 						<columns>
 							<Column demandPopin="true" minScreenWidth="Tablet">
 								<Text text="Stage"/>
@@ -96,11 +95,9 @@
 								<cells>
 									<ObjectStatus state="Information" text="{Jobstatusdetails>name}" icon="sap-icon://badge"/>
 									<!--<ObjectStatus state="Information" text="{Jobstatusdetails>id}" icon="sap-icon://number-sign"/>-->
-									<GenericTag text="{Jobstatusdetails>status}" design="StatusIconHidden"
-										status="{ parts : [ 'Jobstatusdetails>status' ], formatter: '.formatter.buildStagesStatus' }"/>
+									<GenericTag text="{Jobstatusdetails>status}" design="StatusIconHidden" status="{ parts : [ 'Jobstatusdetails>status' ], formatter: '.formatter.buildStagesStatus' }"/>
 									<ObjectStatus state="Information" text="{Jobstatusdetails>startTime}" icon="sap-icon://date-time"/>
-									<ObjectStatus state="Information" text="{ parts : [ 'Jobstatusdetails>duration'], formatter: '.formatter.addSec' }"
-										icon="sap-icon://lateness"/>
+									<ObjectStatus state="Information" text="{ parts : [ 'Jobstatusdetails>duration'], formatter: '.formatter.addSec' }" icon="sap-icon://lateness"/>
 								</cells>
 							</ColumnListItem>
 						</items>
@@ -117,6 +114,20 @@
 							<Text text="Panel Content" id="text9"/>
 						</content>
 					</Panel>
+					<Panel xmlns="sap.m" width="auto" expandable="true" expanded="false" id="idpanel_Stage">
+					    <headerToolbar>
+					        <Toolbar id="idtoolbar_stagelog">
+					            <Title id="idtoolbar_stagelog_title" text=""/>
+					            <ToolbarSpacer/>
+					            <Button icon="sap-icon://settings"/>
+					            </Toolbar>
+					        
+					    </headerToolbar>
+					    <content>
+					        <Text text="" id="idstagelog"/>
+					        
+					    </content>
+					    </Panel>
 				</content>
 			</Page>
 		</pages>

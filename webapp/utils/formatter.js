@@ -17,7 +17,7 @@ sap.ui.define([], function () {
 				result = "Success";
 			else
 				result = "Warning";
-
+console.log(result);
 			return result;
 		},
 		buildStagesStatus: function (status) {
