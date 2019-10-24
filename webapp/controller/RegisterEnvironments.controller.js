@@ -11,7 +11,8 @@ sap.ui.define([
 		 * @memberOf scp.com.saparate.view.RegisterEnvironments
 		 */
 		onInit: function () {
-
+			this._oRouter = this.getOwnerComponent().getRouter();
+			this._oRouter.getRoute("RegisterEnvironments").attachPatternMatched(this._onObjectMatched, this);
 		},
 
 		/**
@@ -39,6 +40,31 @@ sap.ui.define([
 		//	onExit: function() {
 		//
 		//	}
+		_onObjectMatched: function (oEvent) {
+			var oModel_Enviromnents = new sap.ui.model.json.JSONModel();
+			oModel_Enviromnents.loadData(this.getOwnerComponent().getModel("servers").getProperty("getcfc"));
+			// oModel_Enviromnents.attachRequestCompleted(function () {
+			// 	this.getView().setModel(oModel_Enviromnents.getData()["response"],"Enviroments");
+			// }.bind(this));
+			this.getView().setModel(oModel_Enviromnents, "Enviroments");
+		},
+		onregisterEnviroment: function (oEvent) {
+			this._getDialog().open();
+		},
+		_getDialog: function () {
+			if (!this._oDialog) {
+				this._oDialog = sap.ui.xmlfragment("scp.com.saparate.view.fragments.Enviromnent");
+				
+				this.getView().addDependent(this._oDialog);
+			}
+			return this._oDialog;
+		},
+		onSaveEditEnvironment:function () {
+			if (!this._oDialog) {
+				this._oDialog = sap.ui.xmlfragment("scp.com.saparate.view.fragments.Enviromnent");
+			}
+			return this._oDialog;
+		}
 
 	});
 

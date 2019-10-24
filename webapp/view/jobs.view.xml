@@ -43,7 +43,7 @@
 							</Column>
 						</columns>
 						<items>
-							<ColumnListItem type="Active">
+							<ColumnListItem type="Active" press="navigatetoBuilds">
 								<cells>
 									<Text text="{Jobs>projectname}"/>
 									<!--<Text text="{Jobs>createdDate}"/>-->

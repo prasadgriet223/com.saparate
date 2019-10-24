@@ -62,7 +62,7 @@ sap.ui.define([
 				from: "tonewpipeline"
 			});
 		},
-		gotoCredentials: function () {
+		gotoEnviroments: function () {
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			oRouter.navTo("RegisterEnvironments");
 

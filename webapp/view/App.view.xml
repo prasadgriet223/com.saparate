@@ -29,7 +29,7 @@
 					<tnt:NavigationListItem text="Projects" icon="sap-icon://download-from-cloud" select="gotoProjects"/>
 					<tnt:NavigationListItem text="Build Pipelines" icon="sap-icon://globe" select="gotoPipelines"/>
 					<tnt:NavigationListItem text="Release Piplelines" icon="sap-icon://grid" select="gotoBuilds"/>
-					<tnt:NavigationListItem text="Environments" icon="sap-icon://drill-down" select="gotoDeployManager"/>
+					<tnt:NavigationListItem text="Environments" icon="sap-icon://drill-down" select="gotoEnviroments"/>
 					<!--<tnt:NavigationListItem text="Image Artifact" icon="sap-icon://electrocardiogram" select="gotoImageRepo"/>-->
 					<!--<tnt:NavigationListItem text="Teams" icon="sap-icon://explorer" select="gotoTeams"/>-->
 					<tnt:NavigationListItem text="Credentials" icon="sap-icon://factory" select="gotoCredentials"/>

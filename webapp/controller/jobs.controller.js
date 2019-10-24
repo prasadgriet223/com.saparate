@@ -109,8 +109,8 @@ sap.ui.define([
 						}.bind(this));
 					}
 					//if (oAction === MessageBox.Action.NO) {
-						this.getView().setBusy(false);
-				//	}
+					this.getView().setBusy(false);
+					//	}
 
 				}.bind(this)
 			});
@@ -143,10 +143,12 @@ sap.ui.define([
 			MessageToast.show(msg);
 			//	this.getView().getModel().refresh();
 
+		},
+		navigatetoBuilds: function (oEvent) {
+			this.gotoBuilds(oEvent);
 		}
 	});
 });
-
 // function(Controller, MessageBox) {
 //       "use strict";
 
