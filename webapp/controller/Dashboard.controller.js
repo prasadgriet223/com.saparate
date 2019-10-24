@@ -126,6 +126,10 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "scp/com/saparate/utils/formatter"]
 				buildid: oEvent.getParameter("listItem").getCells()[1].getText()
 			});
 
+		},
+		refreshData: function (oEvent) {
+			this.getView().getModel("Jobdetails").loadData(this.getOwnerComponent().getModel("servers").getProperty("latestBuildResults") );
+			this.getView().getModel("Jobdetails").refresh();
 		}
 	});
 });

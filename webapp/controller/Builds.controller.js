@@ -14,7 +14,7 @@ sap.ui.define([
 		onInit: function () {
 			this._oRouter = this.getOwnerComponent().getRouter();
 			this._oRouter.getRoute("Builds").attachPatternMatched(this._onObjectMatched, this);
-			// this._jobid = "";
+			this._jobid = "";
 			// this._from = "";
 			// this._to = "";
 		},
@@ -46,12 +46,13 @@ sap.ui.define([
 		//	}
 		_onObjectMatched: function (oEvent) {
 			var jobId = oEvent.getParameter("arguments").jobId;
+			this._jobid = jobId;
 			var oModel_jobdetails = new sap.ui.model.json.JSONModel();
 			oModel_jobdetails.loadData(this.getOwnerComponent().getModel("servers").getProperty("jobresults") + "?jobName=" + jobId);
 			this.byId("idBuildstblHdr").setText("Build Results--" + jobId);
 			this.getView().setModel(oModel_jobdetails, "Jobdetails");
 			// this._to = "stagesFromPipeline";
-			// this._jobid = jobId;
+
 			// if (jobId === "Recent Builds" && from === "dashboard") {
 			// 	var Breadcrumb = this.getOwnerComponent().getModel("BreadCrumb");
 			// 	Breadcrumb.setData([{
@@ -86,6 +87,12 @@ sap.ui.define([
 		},
 		onLinkPressNavigate: function (oEvent) {
 
+		},
+
+		refreshData: function (oEvent) {
+			this.getView().getModel("Jobdetails").loadData(this.getOwnerComponent().getModel("servers").getProperty("jobresults") + "?jobName=" +
+				this._jobid);
+			this.getView().getModel("Jobdetails").refresh();
 		}
 	});
 
