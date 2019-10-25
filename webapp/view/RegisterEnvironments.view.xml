@@ -12,7 +12,7 @@
 				<content>
 				<List noDataText="Drop list items here" id="idEnviroments" items="{Enviroments>/}">
 				    <items>
-				        <StandardListItem type="Active" title="{Enviroments>name}" description="{Enviroments>url}" icon="sap-icon://map" id="item0"/>
+				        <StandardListItem type="Active" title="{Enviroments>name}" description="{Enviroments>url}" press="openEnvironmentFragment" icon="sap-icon://map" id="item0"/>
 				    </items>
 				</List>
 				</content>

@@ -1,14 +1,15 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="scp.com.saparate.controller.buildStages">
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+	controllerName="scp.com.saparate.controller.buildStages">
 	<App>
 		<pages>
-			<Page id="idBuildStages" navButtonPress="navigatetoPrevious">
-				<headerContent>
-					<OverflowToolbar id="idoftbBuildStages">
-						<!--<Button icon="sap-icon://checklist" id="idbtn_respectivebuild" press="navigatetobuildpipelines"/>-->
-						<ToolbarSpacer/>
-						<!--<Button icon="sap-icon://physical-activity" text="Trigger Job" press="initiateTriggerJob"/>-->
-					</OverflowToolbar>
-				</headerContent>
+			<Page id="idBuildStages" navButtonPress="navigatetoPrevious" showHeader="false">
+				<!--<headerContent>-->
+				<!--	<OverflowToolbar id="idoftbBuildStages">-->
+				<!--<Button icon="sap-icon://checklist" id="idbtn_respectivebuild" press="navigatetobuildpipelines"/>-->
+				<!--		<ToolbarSpacer/>-->
+				<!--<Button icon="sap-icon://physical-activity" text="Trigger Job" press="initiateTriggerJob"/>-->
+				<!--	</OverflowToolbar>-->
+				<!--</headerContent>-->
 				<content>
 					<!--<List noDataText="No Data" id="idBuildStageResults" items="{Jobstatusdetails>/0/stageResult/stages}">-->
 					<!--	<items>-->
@@ -72,7 +73,8 @@
 					<!--		</CustomListItem>-->
 					<!--	</items>-->
 					<!--</List>-->
-					<Table id="idPipeLineBuildStageResults" items="{Jobstatusdetails>/0/stageResult/stages}" alternateRowColors="true" mode="SingleSelectLeft" selectionChange="ShowStageLog">
+					<Table id="idPipeLineBuildStageResults" items="{Jobstatusdetails>/0/stageResult/stages}" alternateRowColors="true" mode="SingleSelectLeft"
+						selectionChange="ShowStageLog">
 						<columns>
 							<Column demandPopin="true" minScreenWidth="Tablet">
 								<Text text="Stage"/>
@@ -95,9 +97,11 @@
 								<cells>
 									<ObjectStatus state="Information" text="{Jobstatusdetails>name}" icon="sap-icon://badge"/>
 									<!--<ObjectStatus state="Information" text="{Jobstatusdetails>id}" icon="sap-icon://number-sign"/>-->
-									<GenericTag text="{Jobstatusdetails>status}" design="StatusIconHidden" status="{ parts : [ 'Jobstatusdetails>status' ], formatter: '.formatter.buildStagesStatus' }"/>
+									<GenericTag text="{Jobstatusdetails>status}" design="StatusIconHidden"
+										status="{ parts : [ 'Jobstatusdetails>status' ], formatter: '.formatter.buildStagesStatus' }"/>
 									<ObjectStatus state="Information" text="{Jobstatusdetails>startTime}" icon="sap-icon://date-time"/>
-									<ObjectStatus state="Information" text="{ parts : [ 'Jobstatusdetails>duration'], formatter: '.formatter.addSec' }" icon="sap-icon://lateness"/>
+									<ObjectStatus state="Information" text="{ parts : [ 'Jobstatusdetails>duration'], formatter: '.formatter.addSec' }"
+										icon="sap-icon://lateness"/>
 								</cells>
 							</ColumnListItem>
 						</items>
@@ -115,20 +119,33 @@
 						</content>
 					</Panel>
 					<Panel xmlns="sap.m" width="auto" expandable="true" expanded="false" id="idpanel_Stage">
-					    <headerToolbar>
-					        <Toolbar id="idtoolbar_stagelog">
-					            <Title id="idtoolbar_stagelog_title" text=""/>
-					            <ToolbarSpacer/>
-					            <Button icon="sap-icon://settings"/>
-					            </Toolbar>
-					        
-					    </headerToolbar>
-					    <content>
-					        <Text text="" id="idstagelog"/>
-					        
-					    </content>
-					    </Panel>
+						<headerToolbar>
+							<Toolbar id="idtoolbar_stagelog">
+								<Title id="idtoolbar_stagelog_title" text=""/>
+								<ToolbarSpacer/>
+								<Button icon="sap-icon://settings"/>
+							</Toolbar>
+						</headerToolbar>
+						<content>
+							<Text text="" id="idstagelog"/>
+						</content>
+					</Panel>
 				</content>
+				<subHeader>
+					<Bar xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:html="http://www.w3.org/1999/xhtml" xmlns="sap.m" id="bar0112">
+						<contentLeft>
+							<Breadcrumbs xmlns="sap.m" separatorStyle="GreaterThan" id="idBreadcrum_buildStages">
+								<links>
+									<Link text="Project" id="idlnk_Projects"/>
+									<Link text="Dashboard" press="navigateTo"/>
+									<Link text="Build PipeLines" press="navigateTo"/>
+									<Link id="idbc_build" press="navigateTo"/>
+								</links>
+							</Breadcrumbs>
+						</contentLeft>
+						<contentMiddle/>
+					</Bar>
+				</subHeader>
 			</Page>
 		</pages>
 	</App>

@@ -44,50 +44,12 @@ sap.ui.define([
 			var buildId = oEvent.getParameter("arguments").buildid;
 			this._jobid = jobId;
 			this._buildid = buildId;
+			this.byId("idbc_build").setText(jobId);
 			var oModel_buildstatusdetails = new sap.ui.model.json.JSONModel();
 			oModel_buildstatusdetails.loadData(this.getOwnerComponent().getModel("servers").getProperty("JobStageResults") + "?jobName=" +
 				jobId + "&buildNumber=" + buildId);
-			// var oModel_buildstatusdetails_cpp = new sap.ui.model.json.JSONModel();
-			// oModel_buildstatusdetails_cpp.setData([{
-			// 	"name": "#1",
-			// 	"duartion": 0,
-			// 	"estimatedDuration": 0,
-			// 	"number": 1,
-			// 	"buildResult": "FAILURE",
-			// 	"testResult": null,
-			// 	"testReport": null,
-			// 	"timeStamp": "2019/10/22 22:55:50",
-			// 	"stageResult": {
-			// 		"stages": [{
-			// 			"id": 7,
-			// 			"name": "prepare----000",
-			// 			"execNode": "",
-			// 			"status": "SUCCESS",
-			// 			"startTime": "2019/10/22 22:56:02",
-			// 			"duration": 0,
-			// 			"pauseDuration": 0
-			// 		}, {
-			// 			"id": 12,
-			// 			"name": "prepareConfigYaml",
-			// 			"execNode": "",
-			// 			"status": "SUCCESS",
-			// 			"startTime": "2019/10/22 22:56:04",
-			// 			"duration": 0,
-			// 			"pauseDuration": 0
-			// 		}, {
-			// 			"id": 17,
-			// 			"name": "prepareBuild",
-			// 			"execNode": "",
-			// 			"status": "FAILED",
-			// 			"startTime": "2019/10/22 22:56:04",
-			// 			"duration": 0,
-			// 			"pauseDuration": 0
-			// 		}]
-			// 	}
-			// }]);
-			// this.getView().setModel(oModel_buildstatusdetails_cpp, "Jobstatusdetails");
 			this.getView().setModel(oModel_buildstatusdetails, "Jobstatusdetails");
-			this.byId("idBuildStages").setTitle("Stagewise Build Results--" + jobId + "--Build#" + buildId);
+			this.byId("idBreadcrum_buildStages").setCurrentLocationText(buildId);
 			var oModel_buildstageslog = new sap.ui.model.json.JSONModel();
 			oModel_buildstageslog.loadData(this.getOwnerComponent().getModel("servers").getProperty("log") + "?jobName=" + jobId +
 				"&buildNumber=" + buildId);
@@ -101,6 +63,20 @@ sap.ui.define([
 				oText2.placeAt(this.byId("idlog_content"));
 				this.getView().setBusy(false);
 			}.bind(this));
+		},
+		navigateTo: function (oEvent) {
+			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			var route = oEvent.getSource().getText();
+			if (route === "Dashboard") {
+				oRouter.navTo("Dashboard");
+			} else if (route === "Build PipeLines") {
+				oRouter.navTo("jobs");
+			} else {
+				var selectedJobId = oEvent.getSource().getText();
+				oRouter.navTo("Builds", {
+					jobId: selectedJobId
+				});
+			}
 		},
 		/**
 		 *@memberOf scp.com.saparate.controller.buildStages
@@ -121,6 +97,49 @@ sap.ui.define([
 				this.byId("idpanel_Stage").setExpanded(true);
 			}.bind(this));
 
+		},
+		navigateto: function (oEvent) {
+
 		}
 	});
 });
+
+// var oModel_buildstatusdetails_cpp = new sap.ui.model.json.JSONModel();
+// oModel_buildstatusdetails_cpp.setData([{
+// 	"name": "#1",
+// 	"duartion": 0,
+// 	"estimatedDuration": 0,
+// 	"number": 1,
+// 	"buildResult": "FAILURE",
+// 	"testResult": null,
+// 	"testReport": null,
+// 	"timeStamp": "2019/10/22 22:55:50",
+// 	"stageResult": {
+// 		"stages": [{
+// 			"id": 7,
+// 			"name": "prepare----000",
+// 			"execNode": "",
+// 			"status": "SUCCESS",
+// 			"startTime": "2019/10/22 22:56:02",
+// 			"duration": 0,
+// 			"pauseDuration": 0
+// 		}, {
+// 			"id": 12,
+// 			"name": "prepareConfigYaml",
+// 			"execNode": "",
+// 			"status": "SUCCESS",
+// 			"startTime": "2019/10/22 22:56:04",
+// 			"duration": 0,
+// 			"pauseDuration": 0
+// 		}, {
+// 			"id": 17,
+// 			"name": "prepareBuild",
+// 			"execNode": "",
+// 			"status": "FAILED",
+// 			"startTime": "2019/10/22 22:56:04",
+// 			"duration": 0,
+// 			"pauseDuration": 0
+// 		}]
+// 	}
+// }]);
+// this.getView().setModel(oModel_buildstatusdetails_cpp, "Jobstatusdetails");

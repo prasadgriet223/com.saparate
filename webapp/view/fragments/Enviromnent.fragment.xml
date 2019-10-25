@@ -1,27 +1,24 @@
 <core:FragmentDefinition xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns="sap.m" height="100%">
 	<Dialog title="Dialog from fragment">
 		<content>
-			<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" layout="ResponsiveGridLayout" id="form0">
+			<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" layout="ResponsiveGridLayout" id="idEnvironmentform">
 				<sap.ui.layout.form:content>
 					<Label text="Name" id="label0"/>
-					<Input width="auto" id="input0" fieldWidth="10%"/>
+					<Input width="auto" id="input0" value="{Enviroments>}"/>
 					<Label text="CloudFoundry URL" id="label1"/>
-					<Input width="auto" id="input2" fieldWidth="10%"/>
+					<Input width="auto" id="input2" value="{Enviroments>}"/>
 					<Label text="Space" width="100%" id="label0_1571681561027"/>
-					<Input xmlns="sap.m" id="input0_1571681569206" fieldWidth="10%" width="auto"/>
+					<Input xmlns="sap.m" id="input0_1571681569206" width="auto" value="{Enviroments>}"/>
 					<Label text="Org" width="100%" id="label1_1571681624463"/>
-					<Input xmlns="sap.m" id="input1" fieldWidth="10%" width="auto"/>
+					<Input xmlns="sap.m" id="input1" fieldWidth="10%" width="auto" value="{Enviroments>}"/>
 					<Label text="API EndPoint" width="100%" id="label2"/>
-					<Input xmlns="sap.m" id="input2_1571681711203" fieldWidth="10%" width="auto"/>
+					<Input xmlns="sap.m" id="input2_1571681711203" width="auto" value="{Enviroments>}"/>
 					<Label text="Credential Key" width="100%" id="label3"/>
-					<Select xmlns="sap.m" id="select0">
-						<items>
-							<core:Item xmlns:core="sap.ui.core" key="item-key-1" text="Item Text One" id="item0"/>
-							<core:Item xmlns:core="sap.ui.core" key="item-key-2" text="Item Text Two" id="item1"/>
-						</items>
+					<Select id="idCredSelect_Env" selectedKey="{Enviroments>/credentialKey}" items="{path: 'credentials>/'}">
+						<core:ListItem key="{credentials>credentialKey}" text="{credentials>userName}"/>
 					</Select>
-					<Label xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout.form="sap.ui.layout.form" text="" width="100%" id="label0_1571682503988"/></sap.ui.layout.form:content>
-				<Button xmlns="sap.m" text="Save" id="button0" width="30%"/>
+					<Label xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+						xmlns:sap.ui.layout.form="sap.ui.layout.form" text="" width="100%" id="label0_1571682503988"/></sap.ui.layout.form:content>
 			</sap.ui.layout.form:SimpleForm>
 		</content>
 		<endButton>

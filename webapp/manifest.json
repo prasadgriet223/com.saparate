@@ -89,11 +89,9 @@
 			}
 		},
 		"resources": {
-			"css": [
-				{
-					"uri": "css/style.css"
-				}
-			]
+			"css": [{
+				"uri": "css/style.css"
+			}]
 		},
 		"routing": {
 			"config": {
@@ -105,94 +103,63 @@
 				"controlId": "appView",
 				"clearControlAggregation": false
 			},
-			"routes": [
-				{
-					"name": "Dashboard",
-					"pattern": "Dashboard",
-					"target": [
-						"Dashboard"
-					]
-				},
-				{
-					"name": "App",
-					"pattern": "App",
-					"target": [
-						"App"
-					]
-				},
-				{
-					"name": "UserStoryBoard",
-					"pattern": "UserStoryBoard",
-					"titleTarget": "",
-					"greedy": false,
-					"target": [
-						"UserStoryBoard"
-					]
-				},
-				{
-					"name": "Projects",
-					"pattern": "Projects",
-					"titleTarget": "",
-					"greedy": false,
-					"target": [
-						"Projects"
-					]
-				},
-				{
-					"name": "NewPipeLine",
-					"pattern": "NewPipeLine",
-					"titleTarget": "",
-					"greedy": false,
-					"target": [
-						"NewPipeLine"
-					]
-				},
-				{
-					"name": "jobs",
-					"pattern": "jobs/{from}",
-					"titleTarget": "",
-					"greedy": false,
-					"target": [
-						"jobs"
-					]
-				},
-				{
-					"name": "jobdetails",
-					"pattern": "jobdetails/{jobId},{from}",
-					"titleTarget": "",
-					"greedy": false,
-					"target": [
-						"jobdetails"
-					]
-				},
-				{
-					"name": "buildStages",
-					"pattern": "buildStages/{jobId},{buildid}",
-					"titleTarget": "",
-					"greedy": false,
-					"target": [
-						"buildStages"
-					]
-				},
-				{
-					"name": "Builds",
-					"pattern": "builds/{jobId}",
-					"titleTarget": "",
-					"greedy": false,
-					"target": [
-						"Builds"
-					]
-				},
-				{
-					"name": "RegisterEnvironments",
-					"pattern": "RegisterEnv",
-					"titleTarget": "",
-					"greedy": false,
-					"target": [
-						"RegisterEnvironments"
-					]
-				}
-			],
+			"routes": [{
+				"name": "Dashboard",
+				"pattern": "Dashboard",
+				"target": ["Dashboard"]
+			}, {
+				"name": "App",
+				"pattern": "App",
+				"target": ["App"]
+			}, {
+				"name": "UserStoryBoard",
+				"pattern": "UserStoryBoard",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["UserStoryBoard"]
+			}, {
+				"name": "Projects",
+				"pattern": "Projects",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["Projects"]
+			}, {
+				"name": "NewPipeLine",
+				"pattern": "NewPipeLine",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["NewPipeLine"]
+			}, {
+				"name": "jobs",
+				"pattern": "jobs",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["jobs"]
+			}, {
+				"name": "jobdetails",
+				"pattern": "jobdetails/{jobId},{from}",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["jobdetails"]
+			}, {
+				"name": "buildStages",
+				"pattern": "buildStages/{jobId},{buildid}",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["buildStages"]
+			}, {
+				"name": "Builds",
+				"pattern": "builds/{jobId}",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["Builds"]
+			}, {
+				"name": "RegisterEnvironments",
+				"pattern": "RegisterEnv",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["RegisterEnvironments"]
+			}],
 			"targets": {
 				"TargetLogin": {
 					"viewType": "XML",

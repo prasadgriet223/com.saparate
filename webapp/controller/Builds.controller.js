@@ -49,7 +49,8 @@ sap.ui.define([
 			this._jobid = jobId;
 			var oModel_jobdetails = new sap.ui.model.json.JSONModel();
 			oModel_jobdetails.loadData(this.getOwnerComponent().getModel("servers").getProperty("jobresults") + "?jobName=" + jobId);
-			this.byId("idBuildstblHdr").setText("Build Results--" + jobId);
+			//this.byId("idBuildstblHdr").setText("Build Results--" + jobId);
+			this.byId("idBreadcrum_builds").setCurrentLocationText(jobId);
 			this.getView().setModel(oModel_jobdetails, "Jobdetails");
 			// this._to = "stagesFromPipeline";
 
@@ -78,17 +79,16 @@ sap.ui.define([
 				buildid: oEvent.getParameter("listItem").getCells()[1].getText()
 			});
 		},
-		navigatetoPrevious: function (oEvent) {
+		navigateTo: function (oEvent) {
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			oRouter.navTo("Builds", {
-				jobId: "Recent Builds",
-				from: "dashboard"
-			});
+			var route = oEvent.getSource().getText();
+			if (route === "Dashboard") {
+				oRouter.navTo("Dashboard");
+			}
+			if (route === "Build PipeLines") {
+				oRouter.navTo("jobs");
+			}
 		},
-		onLinkPressNavigate: function (oEvent) {
-
-		},
-
 		refreshData: function (oEvent) {
 			this.getView().getModel("Jobdetails").loadData(this.getOwnerComponent().getModel("servers").getProperty("jobresults") + "?jobName=" +
 				this._jobid);

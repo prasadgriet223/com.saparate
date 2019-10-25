@@ -42,16 +42,17 @@ sap.ui.define([
 		//
 		//	}
 		_onObjectMatched: function (oEvent) {
-			var from = oEvent.getParameter("arguments").from;
-			//console.log(from);
-			this.byId("idtblAllPipelines").setBusy(true);
-			var oModel_jobs = new sap.ui.model.json.JSONModel();
-			if (from === "recentpipeline")
-				oModel_jobs.loadData(this.getOwnerComponent().getModel("servers").getProperty("latestBuildResults"));
-			else if (from === "tonewpipeline")
-				oModel_jobs.loadData(this.getOwnerComponent().getModel("servers").getProperty("jobs"));
+			// var from = oEvent.getParameter("arguments").from;
+			// //console.log(from);
+			// this.byId("idtblAllPipelines").setBusy(true);
+			 var oModel_jobs = new sap.ui.model.json.JSONModel();
+			// if (from === "recentpipeline")
+			// 	oModel_jobs.loadData(this.getOwnerComponent().getModel("servers").getProperty("latestBuildResults"));
+			// else if (from === "tonewpipeline")
+			oModel_jobs.loadData(this.getOwnerComponent().getModel("servers").getProperty("jobs"));
 			this.byId("idtblAllPipelines").setBusy(false);
 			this.getView().setModel(oModel_jobs, "Jobs");
+			this.byId("idBreadcrum_buildpiplines").setCurrentLocationText("Build PipeLines");
 
 		},
 		handleshowBuilddetails: function (oEvent) {
@@ -65,6 +66,10 @@ sap.ui.define([
 		navigatetoCreatePipeline: function (oEvent) {
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			oRouter.navTo("NewPipeLine");
+		},
+		navigatetoDashboard: function (oEvent) {
+			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			oRouter.navTo("Dashboard");
 		},
 		initiateTriggerJob: function (oEvent) {
 			this.getView().setBusy(true);
