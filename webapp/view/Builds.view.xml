@@ -9,9 +9,9 @@
 				<contentLeft>
 					<Breadcrumbs xmlns="sap.m" separatorStyle="GreaterThan" id="idBreadcrum_builds">
 						<links>
-							<Link text="Project" id="idlnk_Projects"/>
-							<Link text="Dashboard"  press="navigateTo"/>
-							<Link text="Build PipeLines"  press="navigateTo"/>
+							<Link text="Project" emphasized="true" id="idlnk_Projects"/>
+							<Link text="Dashboard" emphasized="true" press="navigateTo"/>
+							<Link text="Build PipeLines" emphasized="true" press="navigateTo"/>
 						</links>
 					</Breadcrumbs>
 				</contentLeft>
