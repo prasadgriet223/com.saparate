@@ -60,8 +60,8 @@
 						<contentLeft>
 							<Breadcrumbs xmlns="sap.m" separatorStyle="GreaterThan" id="idBreadcrum_buildpiplines">
 								<links>
-									<Link text="Project" emphasized="true" id="idlnk_Projects"/>
-									<Link text="Dashboard" emphasized="true" id="idlnk_Dashboard" press="navigatetoDashboard"/>
+									<Link text="Project" emphasized="false" id="idlnk_Projects"/>
+									<Link text="Dashboard" emphasized="false" id="idlnk_Dashboard" press="navigatetoDashboard"/>
 								</links>
 							</Breadcrumbs>
 						</contentLeft>
